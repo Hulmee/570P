@@ -30,4 +30,20 @@
     flex-wrap: wrap;
     overflow: auto;
   }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 0.5em;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--light2);
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--light2);
+    border-radius: 10px;
+  }
 </style>
