@@ -139,7 +139,7 @@ input[type='password'] {
   box-shadow: inset 5px 5px 10px #2a2d2d, inset -5px -5px 10px #4e5353;
 }
 .btn-rnd.active {
-  background: var(--gold);
+  background: var(--IAG-Yellow);
   /* box-shadow: inset 5px 5px 10px #a4863c, inset -5px -5px 10px #deb652; */
   box-shadow: inset 5px 5px 10px #2a2d2d, inset -5px -5px 10px #4e5353;
 }

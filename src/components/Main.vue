@@ -3,16 +3,18 @@
     id="main"
     class="">
     <nav>
-      <p
-        id="time"
-        class="nav-text">
-        12:00 PM
-      </p>
-      <p
-        id="room"
-        class="nav-text">
-        Room Name
-      </p>
+      <div
+        @click="SetShow = !SetShow"
+        id="set-btn"
+        class="settings">
+        <div class="btn-rnd btn-rnd-sm">
+          <font-awesome-icon icon="fa-solid fa-gears" />
+        </div>
+      </div>
+      <div id="room">
+        <p class="nav-text">Room Name</p>
+        <p class="nav-text">12:00 PM</p>
+      </div>
       <div id="pwr-con">
         <div
           id="pwr"
@@ -22,8 +24,20 @@
         </div>
       </div>
     </nav>
-    <HDMI v-if="HDMIshow" />
-    <IPTV v-else />
+    <div
+      class="center"
+      v-if="SetShow">
+      <Settings
+        :syst="subPage"
+        @IPTV="subPage = 2"
+        @Pres="subPage = 1" />
+    </div>
+    <div
+      class="center"
+      v-else>
+      <HDMI v-if="subPage == 1" />
+      <IPTV v-if="subPage == 2" />
+    </div>
     <footer>
       <div
         class="btn-rnd btn-rnd-sm"
@@ -46,10 +60,12 @@
   import { ref } from '@vue/reactivity'
   import HDMI from './HDMI.vue'
   import IPTV from './IPTV.vue'
+  import Settings from './Settings.vue'
 
   const emit = defineEmits(['Off'])
   const volVal = ref(50),
-    HDMIshow = ref(false),
+    SetShow = ref(false),
+    subPage = ref(2),
     volUp = () => {
       volVal.value++
     },
@@ -114,7 +130,7 @@
     flex-grow: 3;
     text-align: center;
   }
-  #time,
+  #set-btn,
   #pwr-con {
     flex-grow: 1;
     /* padding-left: 0.5em; */
@@ -123,5 +139,10 @@
     /* padding-left: auto; */
     display: flex;
     justify-content: flex-end;
+  }
+  .center {
+    overflow: auto;
+    height: 100%;
+    width: 100%;
   }
 </style>
