@@ -7,7 +7,9 @@
         @click="SetShow = !SetShow"
         id="set-btn"
         class="settings">
-        <div class="btn-rnd btn-rnd-sm">
+        <div
+          class="btn-rnd btn-rnd-sm"
+          :class="{ success: SetShow }">
           <font-awesome-icon icon="fa-solid fa-gears" />
         </div>
       </div>
