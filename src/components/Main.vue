@@ -23,6 +23,7 @@
       </div>
     </nav>
     <HDMI v-if="HDMIshow" />
+    <IPTV v-else />
     <footer>
       <div
         class="btn-rnd btn-rnd-sm"
@@ -44,10 +45,11 @@
 <script setup>
   import { ref } from '@vue/reactivity'
   import HDMI from './HDMI.vue'
+  import IPTV from './IPTV.vue'
 
   const emit = defineEmits(['Off'])
   const volVal = ref(50),
-    HDMIshow = ref(true),
+    HDMIshow = ref(false),
     volUp = () => {
       volVal.value++
     },
@@ -57,6 +59,25 @@
 </script>
 
 <style scoped>
+  * {
+    --prg-height: 0.25em;
+  }
+  progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50%;
+    height: 2em;
+  }
+
+  progress[value]::-webkit-progress-bar {
+    background-color: #fff;
+    border-radius: 0.5em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+  progress[value]::-webkit-progress-value {
+    border-radius: 0.5em;
+    background-color: var(--IAG-blue);
+  }
   #main {
     height: 100%;
     width: 100%;

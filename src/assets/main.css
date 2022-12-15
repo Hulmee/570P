@@ -163,9 +163,25 @@ input[type='password'] {
   background: linear-gradient(145deg, #404444, #363a3a);
   box-shadow: 5px 5px 10px #2a2d2d, -5px -5px 10px #4e5353;
 }
+.btn-sqr:active,
 .btn-rec:active {
   box-shadow: inset 5px 5px 10px #2a2d2d, inset -5px -5px 10px #4e5353;
 }
+.btn-sqr {
+  height: 5em;
+  width: 5em;
+  margin: 1em;
+  border: solid var(--light2);
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #404444, #363a3a);
+  box-shadow: 5px 5px 10px #2a2d2d, -5px -5px 10px #4e5353;
+}
+/* .btn-sqr:active {
+  box-shadow: inset 5px 5px 10px #2a2d2d, inset -5px -5px 10px #4e5353;
+} */
 .btn-rec-sm {
   height: 3em;
   width: 7em;
