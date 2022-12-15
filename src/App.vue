@@ -16,7 +16,7 @@
   import Start from './components/Start.vue'
   import Main from './components/Main.vue'
 
-  const startFB = ref(false)
+  const startFB = ref(true)
 
   const start = () => {
     console.log('start touched')

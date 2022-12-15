@@ -47,7 +47,7 @@
 
   const emit = defineEmits(['Off'])
   const volVal = ref(50),
-    HDMIshow = ref(false),
+    HDMIshow = ref(true),
     volUp = () => {
       volVal.value++
     },
