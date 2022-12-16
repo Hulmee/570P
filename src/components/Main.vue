@@ -4,16 +4,24 @@
     class="">
     <nav>
       <div
-        @click="SetShow = !SetShow"
         id="set-btn"
         class="settings">
         <div
+          @click="SetShow = !SetShow"
           class="btn-rnd btn-rnd-sm"
           :class="{ success: SetShow }">
           <font-awesome-icon icon="fa-solid fa-gears" />
         </div>
+        <div
+          @click="lockConf = true"
+          class="btn-rnd btn-rnd-sm"
+          :class="{ hidden: !(subPage == 2) }">
+          <font-awesome-icon icon="fa-solid fa-lock-open" />
+        </div>
       </div>
-      <div id="room">
+      <div
+        id="room"
+        class="">
         <p class="nav-text">Room Name</p>
         <p class="nav-text">12:00 PM</p>
       </div>
@@ -56,6 +64,13 @@
       </div>
     </footer>
   </div>
+  <LockConfirm
+    v-if="lockConf"
+    @cancel="lockConf = false"
+    @lock="lockKP = true" />
+  <Keypad
+    v-if="lockKP"
+    @sucess="lockKP = false" />
 </template>
 
 <script setup>
@@ -63,11 +78,15 @@
   import HDMI from './HDMI.vue'
   import IPTV from './IPTV.vue'
   import Settings from './Settings.vue'
+  import LockConfirm from './modal/LockConfirm.vue'
+  import Keypad from './modal/Keypad.vue'
 
   const emit = defineEmits(['Off'])
   const volVal = ref(50),
     SetShow = ref(false),
     subPage = ref(2),
+    lockConf = ref(false),
+    lockKP = ref(false),
     volUp = () => {
       volVal.value++
     },
@@ -129,16 +148,14 @@
     justify-content: center;
   }
   #room {
-    flex-grow: 3;
+    flex-grow: 2;
     text-align: center;
   }
   #set-btn,
   #pwr-con {
-    flex-grow: 1;
-    /* padding-left: 0.5em; */
+    flex: 2;
   }
   #pwr-con {
-    /* padding-left: auto; */
     display: flex;
     justify-content: flex-end;
   }
@@ -146,5 +163,13 @@
     overflow: auto;
     height: 100%;
     width: 100%;
+  }
+  .settings {
+    font-size: 12px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .settings > div {
+    margin: 0.25em;
   }
 </style>
