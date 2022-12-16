@@ -98,6 +98,9 @@
 </script>
 
 <style scoped>
+  .modal {
+    background: var(--IAG-purple);
+  }
   .k-info {
     padding: 0.5em;
     background-color: var(--dark);
@@ -112,7 +115,6 @@
   .k-info > h3 {
     padding: 1em;
     max-width: 300px;
-
     text-align: center;
   }
 
@@ -120,7 +122,6 @@
     height: 75%;
     width: 90%;
     margin-top: 1rem;
-
     background-color: var(--dark);
     text-align: center;
     border: 10px solid var(--dark);
@@ -128,9 +129,6 @@
     box-shadow: inset 5px 5px 10px var(--light2),
       inset -5px -5px 10px var(--light2);
     display: grid;
-    /* grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 1fr); */
-
     grid-template-areas:
       'pass pass pass'
       'b1 b2 b3'
@@ -138,10 +136,7 @@
       'b7 b8 b9'
       'y b10 n';
   }
-  /* .row {
-    width: 100%;
-    height: 25%;
-  } */
+
   .col {
     flex-direction: column;
   }
